@@ -7,7 +7,7 @@ public class UserDao {
 
     private static List<User> users = List.of(
             new User("alan13", "Alan", "123"),
-            new User("amerser", "Alex", "0000"),
+            new User("amerser", "Alex", "qwerty"),
             new User("travoltaJ", "John", "222")
     );
 

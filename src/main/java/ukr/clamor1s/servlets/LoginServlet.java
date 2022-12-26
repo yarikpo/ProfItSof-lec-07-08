@@ -28,18 +28,16 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req,
                           HttpServletResponse res) throws IOException, ServletException {
 
-        System.out.println(req.getParameter("login"));
         User user = UserDao.getByLogin(req.getParameter("login"));
-        System.out.println(user);
+
         if (user == null || !user.getPassword().equals(req.getParameter("password"))) {
-            System.out.println("user is incorrect");
+            req.getSession().setAttribute("error", "Incorrect login or password.");
             res.setStatus(401);
             res.sendRedirect("/ProfItSoft-lec-07-08/login");
             return;
         }
 
-        System.out.println("OK");
-
+        req.getSession().setAttribute("error", "");
         req.getSession().setAttribute("user", user);
         res.setStatus(202);
         res.sendRedirect("/ProfItSoft-lec-07-08/home");

@@ -16,9 +16,9 @@ public class HomeFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Home filter");
+
         User user = (User) ((HttpServletRequest)req).getSession().getAttribute("user");
-        System.out.println(user);
+
         if (user == null || !user.getPassword().equals(UserDao.getByLogin(user.getLogin()).getPassword())) {
             ((HttpServletResponse)res).sendRedirect("/ProfItSoft-lec-07-08/login");
             return;

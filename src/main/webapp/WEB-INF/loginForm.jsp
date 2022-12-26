@@ -8,5 +8,6 @@
             <br />
             <input type="submit" value="Login" />
         </form>
+        <p>${error}</p>
     </body>
 </html>

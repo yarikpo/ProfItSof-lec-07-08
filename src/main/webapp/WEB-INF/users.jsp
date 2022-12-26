@@ -8,9 +8,10 @@
         <table>
             <thead><td>Login</td><td>Name</td></thead>
             <c:forEach var="user" items="${users}">
+            <tr>
                 <td>${user.login}</td>
                 <td>${user.name}</td>
-                <br />
+            </tr>
             </c:forEach>
         </table>
 
