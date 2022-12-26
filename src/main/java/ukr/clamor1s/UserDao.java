@@ -11,7 +11,7 @@ public class UserDao {
             new User("travoltaJ", "John", "222")
     );
 
-    public static List<User> getUsers() {
+    private static List<User> getUsers() {
         return UserDao.users;
     }
 

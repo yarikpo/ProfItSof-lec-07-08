@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
                           HttpServletResponse res) throws IOException, ServletException {
 
         User user = UserDao.getByLogin(req.getParameter("login"));
-
+        // login & password check
         if (user == null || !user.getPassword().equals(req.getParameter("password"))) {
             req.getSession().setAttribute("error", "Incorrect login or password.");
             res.setStatus(401);

@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
         }
 
         User user = (User) ((HttpServletRequest)req).getSession().getAttribute("user");
-
+        // if authorized, than not allowed to go further
         if (user == null || !user.getPassword().equals(UserDao.getByLogin(user.getLogin()).getPassword())) {
             chain.doFilter(req, res);
             return;

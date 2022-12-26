@@ -18,7 +18,7 @@ public class UsersFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 
         User user = (User) ((HttpServletRequest)req).getSession().getAttribute("user");
-
+        // authorization check
         if (user == null || !user.getPassword().equals(UserDao.getByLogin(user.getLogin()).getPassword())) {
             ((HttpServletResponse)res).sendRedirect("/ProfItSoft-lec-07-08/login");
             return;
